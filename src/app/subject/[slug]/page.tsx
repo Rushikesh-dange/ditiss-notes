@@ -4,8 +4,18 @@ import { notFound } from "next/navigation";
 import { ArrowRight, FileText } from "lucide-react";
 import { Metadata } from "next";
 
+export const revalidate = 300; // Cache for 5 minutes
+export const dynamicParams = true;
+
 interface Props {
   params: Promise<{ slug: string }>;
+}
+
+export async function generateStaticParams() {
+  const subjects = await prisma.subject.findMany({ select: { slug: true } });
+  return subjects.map((subject) => ({
+    slug: subject.slug,
+  }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {

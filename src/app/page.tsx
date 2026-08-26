@@ -3,6 +3,8 @@ import prisma from "@/lib/prisma";
 import Link from "next/link";
 import { Folder, ArrowRight } from "lucide-react";
 
+export const revalidate = 300; // Cache for 5 minutes
+
 export default async function Home() {
   const subjects = await prisma.subject.findMany({
     include: {

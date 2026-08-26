@@ -7,8 +7,21 @@ import ProgressBar from "@/components/ProgressBar";
 import Link from "next/link";
 import { Share2, Link as LinkIcon, MessageCircle, Mail } from 'lucide-react';
 
+export const revalidate = 300; // Cache for 5 minutes
+export const dynamicParams = true;
+
 interface Props {
   params: Promise<{ slug: string }>;
+}
+
+export async function generateStaticParams() {
+  const posts = await prisma.post.findMany({ 
+    where: { published: true },
+    select: { slug: true } 
+  });
+  return posts.map((post) => ({
+    slug: post.slug,
+  }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
