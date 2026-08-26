@@ -35,12 +35,23 @@ export default function RootLayout({
             <Link href="/" className="logo">
               DITISS<span className="text-gradient"> Notes</span>
             </Link>
-            <nav className="nav-links">
-              <Link href="/" className="nav-link">Home</Link>
-              <Link href="/cmce-test" className="nav-link">CMCE Test</Link>
-              <Link href="/ccee-test" className="nav-link">CCEE Test</Link>
-              <Link href="/contact" className="nav-link">Contact</Link>
-            </nav>
+            <div className="header-actions">
+              <nav className="nav-links">
+                <Link href="/" className="nav-link">Home</Link>
+                <Link href="/cmce-test" className="nav-link">CMCE Test</Link>
+                <Link href="/ccee-test" className="nav-link">CCEE Test</Link>
+                <Link href="/contact" className="nav-link">Contact</Link>
+              </nav>
+              <form action="/search" method="GET" className="search-form">
+                <input 
+                  type="search" 
+                  name="q" 
+                  placeholder="Search notes..." 
+                  className="search-input"
+                  required
+                />
+              </form>
+            </div>
           </div>
         </header>
         <main>{children}</main>
