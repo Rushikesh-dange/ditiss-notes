@@ -1,9 +1,8 @@
 import prisma from "@/lib/prisma";
 import { notFound } from "next/navigation";
 import { Metadata } from "next";
-import ReactMarkdown from 'react-markdown';
-import rehypeSanitize from 'rehype-sanitize';
 import ProgressBar from "@/components/ProgressBar";
+import MarkdownRenderer from "@/components/MarkdownRenderer";
 import Link from "next/link";
 import { Share2, Link as LinkIcon, MessageCircle, Mail } from 'lucide-react';
 
@@ -125,7 +124,7 @@ export default async function BlogPost({ params }: Props) {
           </header>
 
           <div className="prose animate-fade-in" style={{ paddingBottom: '4rem', borderBottom: '1px solid var(--border-color)' }}>
-            <ReactMarkdown rehypePlugins={[rehypeSanitize]}>{post.content}</ReactMarkdown>
+            <MarkdownRenderer content={post.content} />
           </div>
 
           {/* Retention Feature: Read Next */}
