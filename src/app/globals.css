@@ -2,13 +2,13 @@
 
 :root {
   /* Color Palette (Light Mode) */
-  --bg-primary: #f8f9fa;
+  --bg-primary: #fafafa;
   --bg-secondary: #ffffff;
-  --text-primary: #1a1b1e;
-  --text-secondary: #495057;
+  --text-primary: #111111;
+  --text-secondary: #666666;
   --accent-primary: #4361ee;
   --accent-secondary: #3f37c9;
-  --border-color: #e9ecef;
+  --border-color: #e5e5e5;
   
   /* Shared Gradients & Shadows */
   --gradient-accent: linear-gradient(135deg, #4361ee 0%, #7209b7 100%);
@@ -16,24 +16,25 @@
   --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
   --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
   --glass-bg: rgba(255, 255, 255, 0.7);
-  --glass-border: rgba(255, 255, 255, 0.2);
+  --glass-border: rgba(255, 255, 255, 0.4);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    /* Color Palette (Dark Mode) */
-    --bg-primary: #0f1115;
-    --bg-secondary: #1a1d24;
-    --text-primary: #f8f9fa;
-    --text-secondary: #adb5bd;
+    /* Color Palette (Dark Mode) - GenZ Dev Aesthetic */
+    --bg-primary: #090a0f; /* Deep space black */
+    --bg-secondary: #11131a;
+    --text-primary: #ededed; /* Softer, no-glare white */
+    --text-secondary: #888888;
     --accent-primary: #6366f1;
     --accent-secondary: #8b5cf6;
-    --border-color: #2d3748;
+    --border-color: #1f232b;
     
-    --glass-bg: rgba(26, 29, 36, 0.7);
-    --glass-border: rgba(255, 255, 255, 0.05);
-    --shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.2);
-    --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+    --glass-bg: rgba(17, 19, 26, 0.6);
+    --glass-border: rgba(255, 255, 255, 0.08);
+    --shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.4);
+    --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
+    --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.6);
   }
 }
 
@@ -50,12 +51,17 @@ body {
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   transition: background-color 0.3s ease, color 0.3s ease;
+  background-image: 
+    radial-gradient(at 0% 0%, rgba(67, 97, 238, 0.06) 0px, transparent 40%),
+    radial-gradient(at 100% 0%, rgba(139, 92, 246, 0.06) 0px, transparent 40%);
+  background-attachment: fixed;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Outfit', sans-serif;
   font-weight: 700;
-  line-height: 1.2;
+  line-height: 1.1;
+  letter-spacing: -0.04em;
   margin-bottom: 1rem;
 }
 
@@ -104,12 +110,13 @@ a:hover {
 }
 
 .hover-lift {
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
 }
 
 .hover-lift:hover {
-  transform: translateY(-5px);
-  box-shadow: var(--shadow-lg);
+  transform: translateY(-4px);
+  box-shadow: 0 15px 30px -10px rgba(99, 102, 241, 0.15);
+  border-color: rgba(99, 102, 241, 0.3);
 }
 
 /* Layout Elements */
@@ -259,11 +266,12 @@ a:hover {
 
 /* Typography Overhaul for Reading Experience */
 .prose {
-  max-width: 700px;
+  max-width: 65ch; /* Optimal reading width */
   margin: 0 auto;
-  font-size: 1.125rem;
+  font-size: 1.15rem;
   line-height: 1.8;
   color: var(--text-primary);
+  letter-spacing: -0.01em;
 }
 
 .prose p {

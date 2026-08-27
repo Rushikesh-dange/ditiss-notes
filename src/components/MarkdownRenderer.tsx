@@ -3,6 +3,8 @@
 import React, { useState } from 'react';
 import ReactMarkdown from 'react-markdown';
 import rehypeSanitize from 'rehype-sanitize';
+import rehypeHighlight from 'rehype-highlight';
+import 'highlight.js/styles/atom-one-dark.css';
 import { Check, Copy } from 'lucide-react';
 
 interface CodeProps extends React.HTMLAttributes<HTMLElement> {
@@ -14,27 +16,39 @@ interface CodeProps extends React.HTMLAttributes<HTMLElement> {
 
 const CodeBlock = ({ inline, className, children, ...props }: CodeProps) => {
   const [copied, setCopied] = useState(false);
-  const match = /language-(\w+)/.exec(className || '');
+  
+  // Extract language from className (e.g. "language-js")
+  let language = '';
+  if (className) {
+    const match = /language-(\w+)/.exec(className);
+    if (match) {
+      language = match[1];
+    }
+  }
   
   const handleCopy = () => {
     if (children) {
-      navigator.clipboard.writeText(String(children).replace(/\n$/, ''));
+      // Remove any HTML tags that rehype-highlight might have injected when copying
+      const textToCopy = typeof children === 'string' 
+        ? children 
+        : String(children).replace(/<[^>]*>?/gm, '');
+      navigator.clipboard.writeText(textToCopy.replace(/\n$/, ''));
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
     }
   };
 
-  if (!inline && match) {
+  if (!inline && language) {
     return (
       <div className="code-block-wrapper">
         <div className="code-block-header">
-          <span className="code-language">{match[1]}</span>
+          <span className="code-language">{language}</span>
           <button onClick={handleCopy} className="copy-button" aria-label="Copy code">
             {copied ? <Check size={14} /> : <Copy size={14} />}
             {copied ? 'Copied!' : 'Copy'}
           </button>
         </div>
-        <pre className={className} style={{ margin: 0, borderTopLeftRadius: 0, borderTopRightRadius: 0 }}>
+        <pre style={{ margin: 0, borderTopLeftRadius: 0, borderTopRightRadius: 0 }}>
           <code className={className} {...props}>
             {children}
           </code>
@@ -43,7 +57,7 @@ const CodeBlock = ({ inline, className, children, ...props }: CodeProps) => {
     );
   }
 
-  // Fallback for inline code or code blocks without language
+  // Fallback for code blocks without language
   if (!inline) {
     return (
       <div className="code-block-wrapper">
@@ -53,7 +67,7 @@ const CodeBlock = ({ inline, className, children, ...props }: CodeProps) => {
             {copied ? 'Copied!' : 'Copy'}
           </button>
         </div>
-        <pre className={className} style={{ margin: 0, borderTopLeftRadius: 0, borderTopRightRadius: 0 }}>
+        <pre style={{ margin: 0, borderTopLeftRadius: 0, borderTopRightRadius: 0 }}>
           <code className={className} {...props}>
             {children}
           </code>
@@ -72,7 +86,7 @@ const CodeBlock = ({ inline, className, children, ...props }: CodeProps) => {
 export default function MarkdownRenderer({ content }: { content: string }) {
   return (
     <ReactMarkdown
-      rehypePlugins={[rehypeSanitize]}
+      rehypePlugins={[rehypeSanitize, rehypeHighlight]}
       components={{
         code: CodeBlock as any
       }}
