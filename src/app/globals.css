@@ -1,40 +1,42 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fira+Code:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap');
 
 :root {
-  /* Color Palette (Light Mode - Clean Terminal) */
-  --bg-primary: #f0fdf4;
-  --bg-secondary: #ffffff;
-  --text-primary: #052e16;
-  --text-secondary: #166534;
-  --accent-primary: #16a34a; /* Tech Green */
-  --accent-secondary: #0ea5e9; /* Cyan */
-  --border-color: #bbf7d0;
+  /* Color Palette (Light Mode - Premium Clean) */
+  --bg-primary: #FAFAFA;
+  --bg-secondary: #FFFFFF;
+  --text-primary: #09090B;
+  --text-secondary: #71717A;
+  --accent-primary: #0066FF; /* Vibrant Blue */
+  --accent-secondary: #3B82F6;
+  --border-color: #E4E4E7;
   
   /* Shadows & Surfaces */
-  --shadow-sm: 0 2px 4px rgba(22, 163, 74, 0.1);
-  --shadow-md: 0 4px 12px rgba(22, 163, 74, 0.15);
-  --shadow-lg: 0 12px 24px rgba(22, 163, 74, 0.2);
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.025);
   --surface-bg: var(--bg-secondary);
   --surface-border: var(--border-color);
+  --glass-bg: rgba(255, 255, 255, 0.8);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    /* Color Palette (Dark Mode - Hacker CRT) */
-    --bg-primary: #050505; /* Pitch Black */
-    --bg-secondary: #0a0a0a;
-    --text-primary: #e5e7eb; /* Readable off-white */
-    --text-secondary: #22c55e; /* Terminal Green */
-    --accent-primary: #00ff41; /* Matrix Neon Green */
-    --accent-secondary: #00ffff; /* Neon Cyan */
-    --border-color: #14532d;
+    /* Color Palette (Dark Mode - OLED Premium) */
+    --bg-primary: #0A0A0A; /* OLED Black */
+    --bg-secondary: #171717; /* Deep Grey */
+    --text-primary: #FAFAFA; /* Crisp White */
+    --text-secondary: #A1A1AA; /* Zinc 400 */
+    --accent-primary: #3B82F6; /* Vibrant Blue */
+    --accent-secondary: #60A5FA;
+    --border-color: #27272A;
     
     /* Shadows & Surfaces */
-    --shadow-sm: 0 0 5px rgba(0, 255, 65, 0.2);
-    --shadow-md: 0 0 15px rgba(0, 255, 65, 0.3);
-    --shadow-lg: 0 0 25px rgba(0, 255, 65, 0.5);
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.4);
     --surface-bg: var(--bg-secondary);
     --surface-border: var(--border-color);
+    --glass-bg: rgba(10, 10, 10, 0.8);
   }
 }
 
@@ -54,10 +56,10 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Fira Code', monospace;
-  font-weight: 600;
-  line-height: 1.2;
-  letter-spacing: -0.02em;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.04em;
   margin-bottom: 1rem;
 }
 
@@ -80,7 +82,6 @@ a:hover {
 
 .text-gradient {
   color: var(--accent-primary);
-  text-shadow: 0 0 8px rgba(0, 255, 65, 0.5);
   display: inline-block;
 }
 
@@ -118,7 +119,9 @@ a:hover {
   top: 0;
   z-index: 100;
   padding: 1rem 0;
-  background: var(--surface-bg);
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--surface-border);
   box-shadow: var(--shadow-sm);
 }
@@ -130,9 +133,9 @@ a:hover {
 }
 
 .logo {
-  font-family: 'Fira Code', monospace;
+  font-family: 'Outfit', sans-serif;
   font-size: 1.5rem;
-  font-weight: 700;
+  font-weight: 800;
   letter-spacing: -0.5px;
 }
 
