@@ -1,38 +1,38 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fira+Code:wght@400;500;600;700&display=swap');
 
 :root {
-  /* Color Palette (Light Mode - Snow Storm) */
-  --bg-primary: #ECEFF4;
-  --bg-secondary: #E5E9F0;
-  --text-primary: #2E3440;
-  --text-secondary: #4C566A;
-  --accent-primary: #5E81AC; /* Deep Frost Blue */
-  --accent-secondary: #88C0D0; /* Icy Teal */
-  --border-color: #D8DEE9;
+  /* Color Palette (Light Mode - Clean Terminal) */
+  --bg-primary: #f0fdf4;
+  --bg-secondary: #ffffff;
+  --text-primary: #052e16;
+  --text-secondary: #166534;
+  --accent-primary: #16a34a; /* Tech Green */
+  --accent-secondary: #0ea5e9; /* Cyan */
+  --border-color: #bbf7d0;
   
   /* Shadows & Surfaces */
-  --shadow-sm: 0 2px 4px rgba(46, 52, 64, 0.05);
-  --shadow-md: 0 4px 12px rgba(46, 52, 64, 0.08);
-  --shadow-lg: 0 12px 24px rgba(46, 52, 64, 0.12);
+  --shadow-sm: 0 2px 4px rgba(22, 163, 74, 0.1);
+  --shadow-md: 0 4px 12px rgba(22, 163, 74, 0.15);
+  --shadow-lg: 0 12px 24px rgba(22, 163, 74, 0.2);
   --surface-bg: var(--bg-secondary);
   --surface-border: var(--border-color);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    /* Color Palette (Dark Mode - Polar Night) */
-    --bg-primary: #2E3440;
-    --bg-secondary: #3B4252;
-    --text-primary: #ECEFF4;
-    --text-secondary: #D8DEE9;
-    --accent-primary: #88C0D0; /* Icy Teal */
-    --accent-secondary: #5E81AC; /* Deep Frost Blue */
-    --border-color: #434C5E;
+    /* Color Palette (Dark Mode - Hacker CRT) */
+    --bg-primary: #050505; /* Pitch Black */
+    --bg-secondary: #0a0a0a;
+    --text-primary: #e5e7eb; /* Readable off-white */
+    --text-secondary: #22c55e; /* Terminal Green */
+    --accent-primary: #00ff41; /* Matrix Neon Green */
+    --accent-secondary: #00ffff; /* Neon Cyan */
+    --border-color: #14532d;
     
     /* Shadows & Surfaces */
-    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.15);
-    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.25);
-    --shadow-lg: 0 12px 24px rgba(0, 0, 0, 0.35);
+    --shadow-sm: 0 0 5px rgba(0, 255, 65, 0.2);
+    --shadow-md: 0 0 15px rgba(0, 255, 65, 0.3);
+    --shadow-lg: 0 0 25px rgba(0, 255, 65, 0.5);
     --surface-bg: var(--bg-secondary);
     --surface-border: var(--border-color);
   }
@@ -54,10 +54,10 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Outfit', sans-serif;
-  font-weight: 700;
-  line-height: 1.1;
-  letter-spacing: -0.04em;
+  font-family: 'Fira Code', monospace;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
   margin-bottom: 1rem;
 }
 
@@ -80,6 +80,7 @@ a:hover {
 
 .text-gradient {
   color: var(--accent-primary);
+  text-shadow: 0 0 8px rgba(0, 255, 65, 0.5);
   display: inline-block;
 }
 
@@ -129,9 +130,9 @@ a:hover {
 }
 
 .logo {
-  font-family: 'Outfit', sans-serif;
+  font-family: 'Fira Code', monospace;
   font-size: 1.5rem;
-  font-weight: 800;
+  font-weight: 700;
   letter-spacing: -0.5px;
 }
 
