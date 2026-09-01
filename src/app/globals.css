@@ -1,38 +1,38 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap');
 
 :root {
-  /* Color Palette (Light Mode - Warm Paper) */
-  --bg-primary: #f9f8f6;
-  --bg-secondary: #ffffff;
-  --text-primary: #2c2a28;
-  --text-secondary: #7a7571;
-  --accent-primary: #6b8a71; /* Sage Green */
-  --accent-secondary: #c97861; /* Terracotta */
-  --border-color: #e6e2dd;
+  /* Color Palette (Light Mode - Snow Storm) */
+  --bg-primary: #ECEFF4;
+  --bg-secondary: #E5E9F0;
+  --text-primary: #2E3440;
+  --text-secondary: #4C566A;
+  --accent-primary: #5E81AC; /* Deep Frost Blue */
+  --accent-secondary: #88C0D0; /* Icy Teal */
+  --border-color: #D8DEE9;
   
   /* Shadows & Surfaces */
-  --shadow-sm: 0 2px 4px rgba(44, 42, 40, 0.04);
-  --shadow-md: 0 4px 12px rgba(44, 42, 40, 0.06);
-  --shadow-lg: 0 12px 24px rgba(44, 42, 40, 0.08);
+  --shadow-sm: 0 2px 4px rgba(46, 52, 64, 0.05);
+  --shadow-md: 0 4px 12px rgba(46, 52, 64, 0.08);
+  --shadow-lg: 0 12px 24px rgba(46, 52, 64, 0.12);
   --surface-bg: var(--bg-secondary);
   --surface-border: var(--border-color);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    /* Color Palette (Dark Mode - Slate Canvas) */
-    --bg-primary: #1c2127; /* Dark blue-grey slate */
-    --bg-secondary: #242931; /* Slightly lighter slate */
-    --text-primary: #e6e1dc; /* Warm off-white */
-    --text-secondary: #8b949e;
-    --accent-primary: #8baa91; /* Sage Green */
-    --accent-secondary: #d98871; /* Terracotta */
-    --border-color: #30363d;
+    /* Color Palette (Dark Mode - Polar Night) */
+    --bg-primary: #2E3440;
+    --bg-secondary: #3B4252;
+    --text-primary: #ECEFF4;
+    --text-secondary: #D8DEE9;
+    --accent-primary: #88C0D0; /* Icy Teal */
+    --accent-secondary: #5E81AC; /* Deep Frost Blue */
+    --border-color: #434C5E;
     
     /* Shadows & Surfaces */
-    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.2);
-    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.3);
-    --shadow-lg: 0 12px 24px rgba(0, 0, 0, 0.4);
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.15);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.25);
+    --shadow-lg: 0 12px 24px rgba(0, 0, 0, 0.35);
     --surface-bg: var(--bg-secondary);
     --surface-border: var(--border-color);
   }
