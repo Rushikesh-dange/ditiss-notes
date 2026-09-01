@@ -1,40 +1,40 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap');
 
 :root {
-  /* Color Palette (Light Mode) */
-  --bg-primary: #fafafa;
+  /* Color Palette (Light Mode - Warm Paper) */
+  --bg-primary: #f9f8f6;
   --bg-secondary: #ffffff;
-  --text-primary: #111111;
-  --text-secondary: #666666;
-  --accent-primary: #4361ee;
-  --accent-secondary: #3f37c9;
-  --border-color: #e5e5e5;
+  --text-primary: #2c2a28;
+  --text-secondary: #7a7571;
+  --accent-primary: #6b8a71; /* Sage Green */
+  --accent-secondary: #c97861; /* Terracotta */
+  --border-color: #e6e2dd;
   
-  /* Shared Gradients & Shadows */
-  --gradient-accent: linear-gradient(135deg, #4361ee 0%, #7209b7 100%);
-  --shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
-  --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
-  --glass-bg: rgba(255, 255, 255, 0.7);
-  --glass-border: rgba(255, 255, 255, 0.4);
+  /* Shadows & Surfaces */
+  --shadow-sm: 0 2px 4px rgba(44, 42, 40, 0.04);
+  --shadow-md: 0 4px 12px rgba(44, 42, 40, 0.06);
+  --shadow-lg: 0 12px 24px rgba(44, 42, 40, 0.08);
+  --surface-bg: var(--bg-secondary);
+  --surface-border: var(--border-color);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    /* Color Palette (Dark Mode) - GenZ Dev Aesthetic */
-    --bg-primary: #090a0f; /* Deep space black */
-    --bg-secondary: #11131a;
-    --text-primary: #ededed; /* Softer, no-glare white */
-    --text-secondary: #888888;
-    --accent-primary: #6366f1;
-    --accent-secondary: #8b5cf6;
-    --border-color: #1f232b;
+    /* Color Palette (Dark Mode - Slate Canvas) */
+    --bg-primary: #1c2127; /* Dark blue-grey slate */
+    --bg-secondary: #242931; /* Slightly lighter slate */
+    --text-primary: #e6e1dc; /* Warm off-white */
+    --text-secondary: #8b949e;
+    --accent-primary: #8baa91; /* Sage Green */
+    --accent-secondary: #d98871; /* Terracotta */
+    --border-color: #30363d;
     
-    --glass-bg: rgba(17, 19, 26, 0.6);
-    --glass-border: rgba(255, 255, 255, 0.08);
-    --shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.4);
-    --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
-    --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.6);
+    /* Shadows & Surfaces */
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.2);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.3);
+    --shadow-lg: 0 12px 24px rgba(0, 0, 0, 0.4);
+    --surface-bg: var(--bg-secondary);
+    --surface-border: var(--border-color);
   }
 }
 
@@ -51,10 +51,6 @@ body {
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   transition: background-color 0.3s ease, color 0.3s ease;
-  background-image: 
-    radial-gradient(at 0% 0%, rgba(67, 97, 238, 0.06) 0px, transparent 40%),
-    radial-gradient(at 100% 0%, rgba(139, 92, 246, 0.06) 0px, transparent 40%);
-  background-attachment: fixed;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -83,40 +79,36 @@ a:hover {
 }
 
 .text-gradient {
-  background: var(--gradient-accent);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--accent-primary);
   display: inline-block;
 }
 
 .glass-panel {
-  background: var(--glass-bg);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid var(--glass-border);
-  border-radius: 16px;
-  box-shadow: var(--shadow-md);
+  background: var(--surface-bg);
+  border: 1px solid var(--surface-border);
+  border-radius: 12px;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.2s ease;
 }
 
 /* Animations */
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
+  from { opacity: 0; transform: translateY(8px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
 .animate-fade-in {
-  animation: fadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: fadeIn 0.5s ease forwards;
 }
 
 .hover-lift {
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
 }
 
 .hover-lift:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 15px 30px -10px rgba(99, 102, 241, 0.15);
-  border-color: rgba(99, 102, 241, 0.3);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--accent-primary);
 }
 
 /* Layout Elements */
@@ -125,9 +117,9 @@ a:hover {
   top: 0;
   z-index: 100;
   padding: 1rem 0;
-  background: var(--glass-bg);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--border-color);
+  background: var(--surface-bg);
+  border-bottom: 1px solid var(--surface-border);
+  box-shadow: var(--shadow-sm);
 }
 
 .header-content {
@@ -160,25 +152,22 @@ a:hover {
 }
 
 .search-input {
-  padding: 0.6rem 1.2rem;
-  border-radius: 20px;
-  border: 1px solid var(--glass-border);
-  background: var(--glass-bg);
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  border: 1px solid var(--surface-border);
+  background: var(--bg-primary);
   color: var(--text-primary);
   font-family: 'Inter', sans-serif;
   font-size: 0.95rem;
   width: 250px;
-  transition: all 0.3s ease;
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);
+  transition: all 0.2s ease;
 }
 
 .search-input:focus {
   outline: none;
   border-color: var(--accent-primary);
-  box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.2);
-  width: 300px;
+  box-shadow: 0 0 0 2px rgba(139, 170, 145, 0.2);
+  width: 280px;
 }
 
 .search-input::placeholder {
@@ -226,8 +215,8 @@ a:hover {
   height: 2px;
   bottom: -4px;
   left: 0;
-  background: var(--gradient-accent);
-  transition: width 0.3s ease;
+  background: var(--accent-primary);
+  transition: width 0.2s ease;
   border-radius: 2px;
 }
 
@@ -253,7 +242,7 @@ a:hover {
 }
 
 .btn-primary {
-  background: var(--gradient-accent);
+  background: var(--accent-primary);
   color: white;
   box-shadow: var(--shadow-sm);
 }
@@ -297,7 +286,7 @@ a:hover {
 .prose a {
   color: var(--accent-primary);
   text-decoration: underline;
-  text-decoration-color: rgba(67, 97, 238, 0.4);
+  text-decoration-color: var(--border-color);
   text-underline-offset: 4px;
 }
 
@@ -306,15 +295,15 @@ a:hover {
 }
 
 .prose blockquote {
-  border-left: 4px solid var(--accent-primary);
+  border-left: 3px solid var(--accent-secondary);
   padding-left: 1.5rem;
   margin-left: 0;
   margin-right: 0;
   font-style: italic;
   color: var(--text-secondary);
-  background: rgba(67, 97, 238, 0.05);
+  background: var(--bg-secondary);
   padding: 1.5rem;
-  border-radius: 0 8px 8px 0;
+  border-radius: 4px;
 }
 
 .prose ul, .prose ol {
