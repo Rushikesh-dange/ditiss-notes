@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Script from "next/script";
 import Link from "next/link";
+import LiveViewerCount from "@/components/LiveViewerCount";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -37,6 +38,7 @@ export default function RootLayout({
             </Link>
             <div className="header-actions">
               <nav className="nav-links">
+                <LiveViewerCount />
                 <Link href="/" className="nav-link">Home</Link>
                 <Link href="/cmce-test" className="nav-link">CMCE Test</Link>
                 <Link href="/ccee-test" className="nav-link">CCEE Test</Link>
